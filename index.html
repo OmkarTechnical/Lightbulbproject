@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bulb ON/OFF</title>
+
+	<style type="text/css">
+
+.boxofcontainer{
+ background-color: #c4effd;
+ border:1px solid black;
+ margin: auto;
+ padding: auto;
+ box-sizing: border-box;
+
+}
+.first-text{
+	text-align: center;
+}
+
+.onoffbtn{
+ display: flex;
+ justify-content: center;
+ margin-bottom: 50px;
+}
+
+.flex-container{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+
+		.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+	</style>
+</head>
+<body>
+
+<div class="boxofcontainer">
+
+<div class="first-text">
+	<h1 id="bulblook">Light On and Off Mini Project</h1>
+</div>
+
+<div class="flex-container">
+	<img id="myImage1" src="pic_bulboff.gif" style="width:100px">
+	<img id="myImage2" src="pic_bulboff.gif" style="width:100px" >
+	<img id="myImage3" src="pic_bulboff.gif" style="width:100px" >
+	<img id="myImage4" src="pic_bulboff.gif" style="width:100px" >
+	<img id="myImage5" src="pic_bulboff.gif" style="width:100px" >
+</div>
+
+<div class="onoffbtn">
+	<label class="switch">
+  		<input type="checkbox">
+  		<span class="slider round" onclick="tubelight()"></span>
+	</label>
+</div>
+<script type="text/javascript">
+	const tubelight = () =>{
+		let bulbtext =document.getElementById("bulblook");
+		for(x=1; x<6; x++){
+		let bid =document.getElementById('myImage'.concat(x));
+		console.log(bid);
+		if (bid.src.match('pic_bulbon.gif')){
+			bid.src ="pic_bulboff.gif";
+			bulbtext.innerHTML = "Light Off";
+			bulbtext.style.color = "blue";
+		}else{
+			bid.src ="pic_bulbon.gif";
+			bulbtext.innerHTML = "Light ON";
+			bulbtext.style.color = "red";
+		}
+	}
+}
+
+</script>
+</div>
+</body>
+</html>
